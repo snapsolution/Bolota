@@ -1,0 +1,16 @@
+.h-scroll {
+  	overflow: auto;
+	overflow-x: hidden;
+	max-height:400px;
+	max-width:430px;
+	min-width:430px;
+	height:auto;
+	width: auto;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.xy_300{
+	height:auto;
+	width: 80%;
+}
