@@ -1,15 +1,13 @@
 <?php
-	include("../../../../classes/class_outros.php");  
-	include("../../../../classes/class_loadpage.php");  
+	include("../../../classes/class_outros.php");  
+	include("../../../classes/class_config.php");  
 	$outros = new outros();
-	$loadpage = new loadpage();
+	$config = new config();
 	
-	echo "sdsd".$query = $outros->checar_modulo()."ss";
-	
-	
-	$pagina = $_GET['pagina'];
-	$dados['opcao'] = $_GET['opcao'];
-	$dados['id'] = $_GET['id'];
-	
+	$modulos = $outros->checar_modulo();
+		$modulos = explode('|', $modulos);
+		foreach ( $modulos as $seu_valor ) {
+			echo $seu_valor . '<br>';
+		}
 ?>		
 

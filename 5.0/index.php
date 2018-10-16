@@ -21,9 +21,9 @@
 		$outros->plugins();
 		$outros->autologoff();
 		$outros->exibir();
-		
 		$outros->fullscreen();
 		$outros->select();
+		$loadpage->load_modulos();
 		
 		$query = $config->conexaoBD("configuracoes","","select","");
 		while ($obj = $query->fetch (PDO::FETCH_OBJ)) 
@@ -38,7 +38,8 @@
 		<body class="hold-transition skin-blue sidebar-mini" onload="exibir('dashboard'); startCountdown();">
 		<?php
 			echo "sdsd".$query = $outros->checar_modulo()."ss";
-			
+			echo" <button type='submit' class='btn btn-primary form-control'";?> onclick="load_modulos('adm/views/_load_modulos')"<?php echo">Voltar</button>";
+			echo "<div id='class_loadpage'></div>";
 		?>
 		</body>
 </html>

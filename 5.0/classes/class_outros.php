@@ -2,8 +2,9 @@
 ob_start();
 session_start();
 class outros{
-	public function checar_modulo($tipo){
-		$dir = "modulos/";
+
+	public function checar_modulo(){
+		$dir = "../../../modulos/";
 		foreach (glob ($dir."*", GLOB_ONLYDIR) as $pastas) {
 			if (is_dir ($pastas)) {
 				$pastas = str_replace ($dir,"",$pastas);
@@ -15,15 +16,6 @@ class outros{
 		
 		
 	}
-
-
-
-
-
-
-
-
-
 
 	public function msg($tipo){
 	
@@ -868,16 +860,20 @@ class outros{
 	public function plugins(){
 	
 			$login = $this->asession('login');
-			$path = "../dev";
+			$path = "";
 		if($login == "ok")
 		{
 			//jqueryxD
-			echo"<script src='$path/plugins/jquery 3.2.1/jquery-3.2.1.min.js'></script>";
+			//echo"<script src='$path/plugins/jquery 3.2.1/jquery-3.2.1.min.js'></script>";
+			echo"<script src='https://cdn.rawgit.com/snapsolution/SnapSolutions/703772ad/plugins/jquery%203.3.1/jquery-3.3.1.min.js'></script>";
 			
 			//BootstrapxD
-			echo"<link rel='stylesheet' href='$path/plugins/bootstrap 3.3.7/css/bootstrap.min.css'>";
-			echo"<script src='$path/plugins/bootstrap 3.3.7/js/bootstrap.min.js'></script>";
-			echo"<script src='$path/plugins/outros/css/bootstrap.complemento.css'></script>";
+			//echo"<link rel='stylesheet' href='$path/plugins/bootstrap 3.3.7/css/bootstrap.min.css'>";
+			echo"<link rel='stylesheet' href='https://cdn.rawgit.com/snapsolution/SnapSolutions/490e8bb5/plugins/bootstrap-3.3.7/css/bootstrap.min.css'>";
+			//echo"<script src='$path/plugins/bootstrap 3.3.7/js/bootstrap.min.js'></script>";
+			echo"<script src='https://cdn.rawgit.com/snapsolution/SnapSolutions/490e8bb5/plugins/bootstrap-3.3.7/js/bootstrap.min.js'></script>";
+			//echo"<script src='$path/plugins/outros/css/bootstrap.complemento.css'></script>";
+			echo"<script src='https://cdn.rawgit.com/snapsolution/SnapSolutions/490e8bb5/plugins/outros/css/bootstrap.complemento.css'></script>";
 			
 
 			//PainelxD
@@ -892,7 +888,8 @@ class outros{
 			echo"<script src='$path/plugins/select2/select2.full.min.js'></script>";
 
 			//Mascaras inputxD
-			echo"<script src='$path/plugins/mascaras/jquery.maskedinput.js'></script>";
+			//echo"<script src='$path/plugins/mascaras/jquery.maskedinput.js'></script>";
+			echo"<script src='https://cdn.rawgit.com/snapsolution/SnapSolutions/d0b03fc6/plugins/mascaras/jquery.maskedinput.js'></script>";
 
 			//IconesxD
 			echo"<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css'>";
@@ -901,7 +898,8 @@ class outros{
 			echo"<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css'>";
 
 			//GraficosxD
-			echo"<script src='$path/plugins/graficos/Chart.min.js'></script>";
+			//echo"<script src='$path/plugins/graficos/Chart.min.js'></script>";
+			echo"<script src='https://cdn.rawgit.com/snapsolution/SnapSolutions/d0b03fc6/plugins/graficos/Chart.js'></script>";
 		
 			//datatable
 			echo"<link rel='stylesheet' href='$path/plugins/datatables/jquery.dataTables.min.css'>";
@@ -941,10 +939,8 @@ class outros{
 			<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css'>
 			<link rel='stylesheet' href='$path/plugins/dist/css/AdminLTE.min.css'>
 			<link type='text/css' rel='stylesheet' href='$path/plugins/outros/signin.css' media='all'>
-			
-			<script src='js/jquery-1.12.3.min.js'></script>
-			<script src='js/bootstrap.min.js' ></script>
 			";
+			echo"<script src='https://cdn.rawgit.com/snapsolution/SnapSolutions/703772ad/plugins/jquery%203.3.1/jquery-3.3.1.min.js'></script>";
 		}
 	}
 	
