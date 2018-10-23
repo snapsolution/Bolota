@@ -1,17 +1,14 @@
 <?php 
-	include("config.php"); 
-	
-	class config{
-		
-		
+	$dir=dirname(dirname(__DIR__), 1). '/5.0';
+	include("$dir/config.php"); 
+	class config{		
 		public function conexaoBD($string, $excecao, $type, $dados){
-			 
 			$configs = new configs();
-			$dados = $configs->con1();
-			$host = $dados['host'];
-			$base_de_dados = $dados['base_de_dados'];
-			$password = $dados['password'];
-			$user = $dados['user'];
+			$con1 = $configs->con1();
+			$host = $con1['host'];
+			$base_de_dados = $con1['base_de_dados'];
+			$password = $con1['password'];
+			$user = $con1['user'];
 			
 			$pdo = new PDO ( "mysql:host=$host;dbname=$base_de_dados;charset=utf8mb4", $user, $password, array(
 			PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -35,28 +32,29 @@
 		}
 		
 		public function conexaoMZ($string, $excecao, $type, $dados){
-			try 
+
+			$configs = new configs();
+			$con2 = $configs->con2();
+			$host = $con2['host'];
+			$base_de_dados = $con2['base_de_dados'];
+			$password = $con2['password'];
+			$user = $con2['user'];
+			
+			$pdo = new PDO ( "mysql:host=$host;dbname=$base_de_dados;charset=utf8mb4", $user, $password, array(
+			PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+			PDO::ATTR_PERSISTENT => false
+			) );
+			
+			if($type == "update"){$query = $this->update($pdo, $string, $dados);}
+			else if($type == "select"){$query = $this->select($pdo, $string, $dados);}
+			else if($type == "insert"){$query = $this->insert($pdo, $string, $dados);}
+			$query->execute();
+			if($excecao == "count")
 			{
-				$host = "sql121.main-hosting.eu";
-				$base_de_dados = "u831229802_snap";
-				$password = "asdzxc";
-				$user = "u831229802_root";
-				$pdo = new PDO ( "mysql:host=$host;dbname=$base_de_dados;charset=utf8mb4", $user, $password, array(
-				PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-				PDO::ATTR_PERSISTENT => false
-				) );
-				
-				if($type == "update"){$query = $this->update($pdo, $string, $dados);}
-				else if($type == "select"){$query = $this->select($pdo, $string, $dados);}
-				else if($type == "insert"){$query = $this->insert($pdo, $string, $dados);}
-				$query->execute();
-				if($excecao == "count")
-				{
-					$query = $query->fetch(PDO::FETCH_OBJ);
-				}
-				$pdo = null;
+				$query = $query->fetch(PDO::FETCH_OBJ);
 			}
-			catch ( PDOException $e ) {print "Ocorreu um erro ao tentar executar esta ação, foi gerado um LOG do mesmo, tente novamente mais tarde.<br>"; echo $e->getMessage();}
+			$pdo = null;
+			
 			return($query);
 		}
 		
@@ -316,9 +314,10 @@
 				$query = $pdo->prepare("SELECT count(*) + (select count(*) from funcionario) AS TOTAL FROM cliente_fornecedor;");
 			}
 
-			//configurações, dashboard, ajax_suporte
+			//configurações, dashboard, ajax_suporte,admin
 			else if($string == "configuracoes")
 			{
+				
 				$query = $pdo->prepare("SELECT * FROM configuracoes;");
 			}
 			
@@ -326,7 +325,7 @@
 			{
 				$dados[usuario];
 				$query = $pdo->prepare("SELECT * FROM funcionario WHERE USUARIO_FUNCIONARIO = '$dados[usuario]' AND SENHA_USUARIO_FUNCIONARIO = '$dados[senha]';");
-			}
+			}			
 
 			//////////////////////
 			////////manuais////////
@@ -464,6 +463,21 @@
 			
 			}
 
+			//////////////////////
+			////////ADMIN/////////
+			//////////////////////
+
+			else if($string == "atualizar_modulo")
+			{
+				
+
+				$query = $pdo->prepare("UPDATE configuracoes SET  
+					MODULO_BANCO = :modulo_banco WHERE ID_CONFIGURACOES = :id_config;");
+
+				$query->bindValue(":id_config",1);
+				$query->bindValue(":modulo_banco",$dados['modulo_pasta']);
+			}
+	
 			//////////////////////
 			///////Estoque////////
 			//////////////////////

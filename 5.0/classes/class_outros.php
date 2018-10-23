@@ -877,11 +877,16 @@ class outros{
 			
 
 			//PainelxD
-			echo"<link rel='stylesheet' href='$path/plugins/dist/css/AdminLTE.min.css'>";
-			echo"<link rel='stylesheet' href='$path/plugins/dist/css/skins/_all-skins.min.cs'>";
-			echo"<link rel='stylesheet' href='$path/plugins/dist/css/skins/skin-blue.min.css'>";
-			echo"<script src='$path/plugins/dist/js/app.min.js'></script>";
-			echo"<script src='$path/plugins/dist/js/demo.js'></script>";
+			//echo"<link rel='stylesheet' href='$path/plugins/dist/css/AdminLTE.min.css'>";
+			echo"<link rel='stylesheet' href='https://rawcdn.githack.com/snapsolution/SnapSolutions/master/plugins/dist/css/AdminLTE.min.css'>";
+			//echo"<link rel='stylesheet' href='$path/plugins/dist/css/skins/_all-skins.min.cs'>";
+			echo"<link rel='stylesheet' href='https://rawcdn.githack.com/snapsolution/SnapSolutions/master/plugins/dist/css/skins/_all-skins.min.css'>";
+			//echo"<link rel='stylesheet' href='$path/plugins/dist/css/skins/skin-blue.min.css'>";
+			echo"<link rel='stylesheet' href='https://rawcdn.githack.com/snapsolution/SnapSolutions/master/plugins/dist/css/skins/skin-blue.min.css'>";
+			//echo"<script src='$path/plugins/dist/js/app.min.js'></script>";
+			echo"<script src='https://rawcdn.githack.com/snapsolution/SnapSolutions/master/plugins/dist/js/app.min.js'></script>";
+			//echo"<script src='$path/plugins/dist/js/demo.js'></script>";
+			echo"<script src='https://rawcdn.githack.com/snapsolution/SnapSolutions/master/plugins/dist/js/demo.js'></script>";
 
 			//SelectxD
 			echo"<link rel='stylesheet' href='$path/plugins/select2/select2.min.css'>";
@@ -934,12 +939,16 @@ class outros{
 		
 		else{
 			echo"
-			<link rel='stylesheet' href='$path/plugins/bootstrap/bootstrap.3.3.6.css'>
-			<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css'>
-			<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css'>
+			<!--
+			
+			
 			<link rel='stylesheet' href='$path/plugins/dist/css/AdminLTE.min.css'>
-			<link type='text/css' rel='stylesheet' href='$path/plugins/outros/signin.css' media='all'>
+			<link type='text/css' rel='stylesheet' href='$path/plugins/outros/signin.css' media='all'>-->
 			";
+			echo"<link rel='stylesheet' href='https://cdn.rawgit.com/snapsolution/SnapSolutions/490e8bb5/plugins/bootstrap-3.3.7/css/bootstrap.min.css'>";
+			echo"<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css'>";
+			echo"<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css'>";
+			echo"<link rel='stylesheet' href='https://rawcdn.githack.com/snapsolution/SnapSolutions/master/plugins/dist/css/AdminLTE.min.css'>";
 			echo"<script src='https://cdn.rawgit.com/snapsolution/SnapSolutions/703772ad/plugins/jquery%203.3.1/jquery-3.3.1.min.js'></script>";
 		}
 	}
